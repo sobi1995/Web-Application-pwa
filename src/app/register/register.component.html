@@ -1,0 +1,37 @@
+<form >
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="email"><b>FullName</b></label>
+    <input type="text" placeholder="Enter FullName" name="fullname"  [(ngModel)]="user.fullname"required>
+
+    <label for="psw"><b>Age</b></label>
+    <input type="text" placeholder="Enter Age" name="age" [(ngModel)]="user.age" required>
+
+    <label for="psw-repeat"><b>Mobile</b></label>
+    <input type="text" placeholder="Mobile" name="mobile" [(ngModel)] ="user.mobile" required>
+    <hr>
+ 
+    <table>
+        <tr>
+          <th>key</th>
+          <th>fullname</th>
+          <th>age</th>
+          <th>mobile</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{user.key}}</td>
+          <td>{{user.fullname}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.mobile}}</td>
+        </tr>
+        
+      </table>
+    <button (click)="addUser()" class="registerbtn">Register</button>
+  </div>
+  
+   {{dataOnApi | json}}
+</form>
+ 
