@@ -13,13 +13,9 @@ import { RegisterComponent } from './register/register.component';
 import { AboutComponent } from './about/about.component';
 import { SharedModule } from './common/shared/shared.module';
 import { FirebaseService } from './Services/firebase.service';
-import { environment } from './common/shared/environment';
+import { environment  as environmentFirebase } from './common/shared/environment';
 import { UserListComponent } from './user-list/user-list.component';
 import { environment } from '../environments/environment';
- 
-
-
-
 @NgModule({
   declarations: [AppComponent, RegisterComponent,AboutComponent, UserListComponent],
   imports: [
@@ -29,7 +25,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environmentFirebase.firebase),
     AngularFireDatabaseModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
