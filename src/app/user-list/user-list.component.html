@@ -1,3 +1,16 @@
-<p>
-  user-list works!
-</p>
+
+  <table>
+        <tr>
+          <th>key</th>
+          <th>fullname</th>
+          <th>age</th>
+          <th>mobile</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>{{user.key}}</td>
+          <td>{{user.fullname}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.mobile}}</td>
+        </tr>
+        
+      </table>  

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDto } from '../dtos/user-dto';
 import { FirebaseService } from '../Services/firebase.service';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -9,32 +10,30 @@ import { FirebaseService } from '../Services/firebase.service';
 })
 export class RegisterComponent implements OnInit {
   user;
-  users;
+
   dataOnApi:any;
 ngOnInit(): void {
 //  this.getUsers();
   //this.getDataOnApi();
 }
-constructor() {//updates: SwUpdate, public _firebase:FirebaseService
+constructor(public _firebase:FirebaseService) {//updates: SwUpdate, public _firebase:FirebaseService
    this.user=  {} as UserDto;
-  this.users=   Array<UserDto>();
+ 
   // updates.available.subscribe(event => {
   //   updates.activateUpdate().then(() => document.location.reload());
   // })
 }
-  // addUser(){
-  //   this._firebase.postUser(this.user).subscribe(res=>{
-  //     alert("add New User")
-  //     this.getUsers();
-  //   })
-  //       }
-
-  //       getUsers(){
-  //         this._firebase.getUsers().subscribe(res=>{
-  //           this.users=res;
-  //         })
-  //       }
-
+  addUser(){
+    this._firebase.postUser(this.user).subscribe(res=>{
+      alert("add New User")
+     // this.getUsers();
+     this.clearForm();
+    })
+        }
+clearForm(){
+  this.user=empty;
+}
+ 
   //       getDataOnApi(){
   //         this._firebase.getDataOnApi().subscribe(res=>{
   //           this.dataOnApi=res;

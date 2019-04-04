@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDto } from '../dtos/user-dto';
+import { FirebaseService } from '../Services/firebase.service';
 
 @Component({
   selector: 'app-user-list',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
-  constructor() { }
+  users;
+  constructor(public _firebase:FirebaseService) { 
+    this.users=   Array<UserDto>();
+  }
 
   ngOnInit() {
+    this._firebase.getUsers().subscribe(res=>{
+                this.users=res;
+              })
   }
 
 }

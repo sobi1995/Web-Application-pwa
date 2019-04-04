@@ -26,6 +26,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/api",
+              "src/manifest.json",
               "src/manifest.json"
             ],
             "styles": [
@@ -58,7 +59,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -89,6 +91,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/manifest.json",
               "src/manifest.json"
             ],
             "styles": [
