@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { ThrowStmt } from '@angular/compiler';
 @Injectable({
   providedIn: 'root'
 })
@@ -81,5 +82,14 @@ return res;
 
       })
   );
+}
+
+getOnApi(){
+  return  this._http.get("https://aloostad.com/api/General/Getprovince",).pipe(
+    map((response:any) => {
+       
+return  response
+    } )
+    );
 }
 }

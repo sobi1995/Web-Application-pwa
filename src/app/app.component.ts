@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
+import { FirebaseService } from './Services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { SwUpdate } from '@angular/service-worker';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent  implements OnInit{
+  api:any;
   ngOnInit(): void {
+
+
     if(this.swUpdate.isEnabled)
     {
       this.swUpdate.available.subscribe(()=> {

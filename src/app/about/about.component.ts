@@ -8,9 +8,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private title: Title) { }
+  constructor( ) { }
 
   ngOnInit() {
-    this.title.setTitle('About Angular Pokédex');
+   
   }
 }
